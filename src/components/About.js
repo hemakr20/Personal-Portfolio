@@ -1,4 +1,3 @@
-import AboutImg from "../assets/about_new.png"
 import { motion } from "framer-motion"
 
 export default function About () {
@@ -8,37 +7,94 @@ export default function About () {
         line3: 'Backend Expertise: Proficient in SQL and MongoDB, ensuring robust data management and efficient API architectures.'
     }
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+            }
+        }
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
+        visible: { 
+            opacity: 1, 
+            scale: 1, 
+            filter: "blur(0px)",
+            transition: { duration: 0.8, ease: "easeOut" }
+        }
+    }
+
     return (
-        <section className="flex flex-col md:flex-row bg-dark-card px-10 py-24 items-center gap-12 border-y border-white/5" id="about">
+        <section className="bg-dark-card px-10 py-32 border-y border-white/5 relative overflow-hidden" id="about">
+            {/* Animated background accent */}
             <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="md:w-1/2 flex justify-center"
-            >
-                <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-accent-teal to-accent-blue rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                    <img className='relative h-[400px] md:h-[500px] rounded-2xl shadow-2xl grayscale transition-all duration-500 border border-white/10' src={AboutImg} alt="Workspace"/>
-                </div>
-            </motion.div>
+                animate={{ 
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360],
+                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent-teal/5 rounded-full blur-[120px] pointer-events-none"
+            />
+
             <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="md:w-1/2 flex flex-col"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10"
             >
-                <div className="flex flex-col">
-                    <h1 className="text-4xl text-white border-b-2 border-accent-teal mb-8 w-fit font-bold font-hero-font pb-2">01. About Me</h1>
-                    <div className="space-y-6 text-lg text-gray-400 leading-relaxed font-light">
-                        <p>{config.line1}</p>
-                        <p className="p-4 bg-dark-bg/50 rounded-xl border border-white/5 font-hero-font text-sm text-accent-teal">
-                            {config.line2}
-                        </p>
-                        <p>{config.line3}</p>
-                    </div>
+                <motion.div variants={itemVariants} className="mb-4">
+                    <span className="text-accent-teal font-hero-font text-sm uppercase tracking-[0.3em]">Discovery</span>
+                </motion.div>
+                
+                <motion.h1 
+                    variants={itemVariants}
+                    className="text-5xl md:text-7xl text-white mb-12 font-bold font-hero-font tracking-tighter"
+                >
+                    01. <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-blue">About_Me</span>
+                </motion.h1>
+
+                <div className="space-y-8">
+                    <motion.p 
+                        variants={itemVariants}
+                        className="text-2xl md:text-3xl text-gray-300 leading-relaxed font-light"
+                    >
+                        {config.line1}
+                    </motion.p>
+
+                    <motion.div 
+                        variants={itemVariants}
+                        className="inline-block p-1 rounded-2xl bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 backdrop-blur-sm"
+                    >
+                        <div className="px-8 py-6 bg-dark-bg/80 rounded-[14px] border border-white/5">
+                            <p className="font-hero-font text-sm md:text-base text-accent-teal tracking-wide italic">
+                                "{config.line2}"
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    <motion.p 
+                        variants={itemVariants}
+                        className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
+                    >
+                        {config.line3}
+                    </motion.p>
                 </div>
+
+                <motion.div 
+                    variants={itemVariants}
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="mt-16 text-accent-teal/30"
+                >
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                    </svg>
+                </motion.div>
             </motion.div>
         </section>
     )
