@@ -7,34 +7,36 @@ export default function Resume () {
     }
 
     return (
-        <section id="resume" className="flex flex-col md:flex-row bg-primary px-10 py-24 items-center gap-16">
+        <section id="resume" className="flex flex-col md:flex-row bg-dark-card px-10 py-24 items-center gap-16 border-t border-white/5">
             <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="md:w-1/2 flex justify-center md:justify-end"
             >
-                <img className='w-72 md:w-80 rounded-lg shadow-2xl ring-4 ring-secondary/20 hover:rotate-2 transition-transform duration-300' src={ResumeIng} alt="Resume thumbnail" />
+                <div className="relative group p-4 bg-white/5 rounded-xl border border-white/10">
+                    <img className='w-72 md:w-80 rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500' src={ResumeIng} alt="Resume" />
+                </div>
             </motion.div>
             <motion.div 
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="md:w-1/2 flex flex-col text-white"
+                className="md:w-1/2 flex flex-col"
             >
-                <h1 className="text-5xl border-b-4 border-secondary mb-8 w-fit font-bold tracking-tight pb-2">Resume</h1>
-                <p className="text-xl mb-10 text-white/90 font-light leading-relaxed">
-                    Interested in seeing my full experience? Feel free to view or download my professional resume.
+                <h1 className="text-4xl text-white border-b-2 border-accent-teal mb-8 w-fit font-bold font-hero-font pb-2">03. Credentials</h1>
+                <p className="text-xl mb-10 text-gray-400 font-light leading-relaxed">
+                    View my technical skills, experience, and educational background in detail.
                 </p>
                 <motion.a 
-                    whileHover={{ scale: 1.05, backgroundColor: 'white', color: 'rgb(228, 111, 136)' }}
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(45, 212, 191, 0.3)" }}
                     whileTap={{ scale: 0.95 }}
-                    className='w-fit bg-secondary text-primary font-bold px-10 py-4 rounded-full shadow-2xl transition-all' 
+                    className='w-fit bg-accent-teal text-dark-bg font-bold px-10 py-4 rounded-xl shadow-2xl transition-all font-hero-font text-sm uppercase tracking-widest' 
                     href={config.link}
                 >
-                    View / Download
+                    GET_RESUME.PDF
                 </motion.a>
             </motion.div>
         </section>

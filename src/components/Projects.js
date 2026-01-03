@@ -7,28 +7,21 @@ export default function Projects() {
         Projects: [
             {
                 image: website1Img,
-                description: 'Clone Ecommerce Website. Built with MERN Stack.',
-                link: "https://github.com/hemakr20/"
+                description: 'Full-featured E-commerce solution with real-time state management and optimized checkout flow.',
+                link: "https://github.com/hemakr20/",
+                tech: ["React", "Node.js", "MongoDB", "Redux"]
             },
             {
                 image: website2Img,
-                description: 'Portfolio Website. Built with React and TailwindCSS.',
-                link: "https://github.com/hemakr20/"
+                description: 'Modern developer portfolio with advanced animations and performance-first architecture.',
+                link: "https://github.com/hemakr20/",
+                tech: ["Next.js", "Framer Motion", "Tailwind"]
             }
         ]
     }
 
-    const cardVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.6, ease: "easeOut" }
-        }
-    };
-
     return (
-        <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-secondary"> 
+        <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg"> 
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -36,35 +29,46 @@ export default function Projects() {
                 className="w-full max-w-6xl mx-auto mb-16"
             >
                 <div className="flex flex-col px-4">
-                    <h1 className="text-5xl border-b-4 border-black text-red-400 mb-6 w-fit font-bold tracking-tight pb-2">Projects</h1>
-                    <p className='text-gray-700 text-xl font-light'>A selection of my recent works built with modern technologies.</p>
+                    <h1 className="text-4xl border-b-2 border-accent-teal text-white mb-6 w-fit font-bold font-hero-font pb-2">02. Selected Work</h1>
+                    <p className='text-gray-500 text-lg font-light'>Building digital experiences with modern engineering practices.</p>
                 </div>
             </motion.div>
             
             <div className="w-full max-w-6xl mx-auto">
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-12 px-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-4'>
                     {config.Projects.map((project, index) => (
                         <motion.div 
                             key={index}
-                            variants={cardVariants}
-                            initial="hidden"
-                            whileInView="visible"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            whileHover={{ y: -10 }}
-                            className='group relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/10]'
+                            transition={{ delay: index * 0.1 }}
+                            whileHover={{ y: -8 }}
+                            className='group relative bg-dark-card rounded-2xl overflow-hidden shadow-2xl border border-white/5'
                         >
-                            <img className='w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700' src={project.image} alt={project.description}/>
-                            <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8'>
-                                <p className='text-white text-lg mb-6 leading-snug'>{project.description}</p>
-                                <motion.div 
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className='w-fit'
+                            <div className="relative h-64 overflow-hidden">
+                                <img className='w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700' src={project.image} alt={project.description}/>
+                                <div className="absolute inset-0 bg-dark-bg/40 group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                            <div className='p-8'>
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {project.tech?.map(t => (
+                                        <span key={t} className="text-[10px] font-hero-font text-accent-teal uppercase tracking-widest px-2 py-1 bg-accent-teal/10 rounded-md">
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                                <p className='text-gray-300 text-base mb-6 font-light leading-relaxed'>{project.description}</p>
+                                <motion.a 
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className='inline-block w-full text-center border border-accent-teal text-accent-teal px-6 py-3 rounded-xl font-bold font-hero-font text-xs hover:bg-accent-teal hover:text-dark-bg transition-all' 
+                                    target='_blank' 
+                                    rel="noreferrer" 
+                                    href={project.link}
                                 >
-                                    <a className='bg-red-400 text-white px-8 py-3 rounded-full font-bold hover:bg-red-500 transition-colors shadow-lg' target='_blank' rel="noreferrer" href={project.link}>
-                                        View Project
-                                    </a>
-                                </motion.div>
+                                    VIEW_PROJECT
+                                </motion.a>
                             </div>
                         </motion.div>
                     ))}

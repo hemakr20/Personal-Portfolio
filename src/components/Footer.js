@@ -1,7 +1,9 @@
 export default function Footer() {
     return (
-        <footer className="py-8 bg-primary text-center text-white/80 font-light tracking-wider border-t border-white/10">
-            &copy; {new Date().getFullYear()} Hemalatha K • MERN Stack Developer
+        <footer className="py-12 bg-dark-bg text-center border-t border-white/5">
+            <p className="text-gray-500 font-hero-font text-xs tracking-widest uppercase">
+                Designed & Built by <span className="text-accent-teal">Hemalatha K</span> &copy; {new Date().getFullYear()}
+            </p>
         </footer>
     )
 }

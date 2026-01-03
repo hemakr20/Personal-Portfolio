@@ -5,15 +5,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'dark-bg': '#0f172a',
+        'dark-card': '#1e293b',
+        'accent-teal': '#2dd4bf',
+        'accent-blue': '#38bdf8',
+        'primary': '#0f172a',
+        'secondary': '#1e293b'
+      },
       borderColor : {
-        'primary' : 'rgb(228, 111, 136)',
-        'secondary' : 'rgb(253, 229, 211)'
+        'primary' : '#334155',
+        'secondary' : '#2dd4bf'
       }
     },
     fontFamily: {
-      'hero-font': 'Bitcount Grid Single Ink'
+      'hero-font': ['Space Mono', 'monospace'],
+      'sans': ['Inter', 'sans-serif']
     }
   },
   plugins: [],
 }
-

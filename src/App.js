@@ -17,31 +17,29 @@ function App() {
   });
 
   return (
-    <div className="App selection:bg-pink-200 selection:text-pink-900 overflow-x-hidden bg-secondary/30 relative">
+    <div className="App selection:bg-accent-teal/30 selection:text-accent-teal overflow-x-hidden bg-dark-bg text-gray-300 relative min-h-screen font-sans">
       {/* Global Background Animation Elements */}
-      <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden bg-dark-bg">
         <motion.div 
             animate={{ 
-                x: [0, 100, 0],
-                y: [0, 50, 0],
-                rotate: [0, 90, 0]
+                x: [0, 50, 0],
+                y: [0, 30, 0],
             }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]"
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-accent-teal/5 rounded-full blur-[120px]"
         />
         <motion.div 
             animate={{ 
-                x: [0, -100, 0],
-                y: [0, -50, 0],
-                rotate: [0, -90, 0]
+                x: [0, -50, 0],
+                y: [0, -30, 0],
             }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-20 -right-20 w-[600px] h-[600px] bg-pink-400/5 rounded-full blur-[120px]"
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-20 -right-20 w-[700px] h-[700px] bg-accent-blue/5 rounded-full blur-[150px]"
         />
       </div>
 
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-pink-400 z-50 origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-teal to-accent-blue z-50 origin-left"
         style={{ scaleX }}
       />
       <Header />
