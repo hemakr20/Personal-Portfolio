@@ -1,5 +1,7 @@
-import { motion, useScroll, useSpring, useMotionValue, useTransform } from 'framer-motion';
-import { useEffect } from 'react';
+import { motion, useScroll, useSpring, useMotionValue } from 'framer-motion';
+import { useEffect, useState, useCallback } from 'react';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 import './App.css';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -10,6 +12,20 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 
 function App() {
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {
+    // console.log(container);
+  }, []);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -31,6 +47,77 @@ function App() {
 
   return (
     <div className="App selection:bg-accent-teal/30 selection:text-accent-teal overflow-x-hidden bg-dark-bg text-gray-300 relative min-h-screen font-sans cursor-none">
+      {/* Particles Background */}
+      {init && (
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={{
+            background: {
+              color: {
+                value: "transparent",
+              },
+            },
+            fpsLimit: 60,
+            interactivity: {
+              events: {
+                onHover: {
+                  enable: true,
+                  mode: "grab",
+                },
+              },
+              modes: {
+                grab: {
+                  distance: 140,
+                  links: {
+                    opacity: 0.5,
+                  },
+                },
+              },
+            },
+            particles: {
+              color: {
+                value: "#2dd4bf",
+              },
+              links: {
+                color: "#2dd4bf",
+                distance: 150,
+                enable: true,
+                opacity: 0.2,
+                width: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                  default: "bounce",
+                },
+                random: false,
+                speed: 1,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                },
+                value: 80,
+              },
+              opacity: {
+                value: 0.3,
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: { min: 1, max: 3 },
+              },
+            },
+            detectRetina: true,
+          }}
+          className="absolute inset-0 -z-10"
+        />
+      )}
+
       {/* Custom Cursor */}
       <motion.div 
         className="fixed top-0 left-0 w-8 h-8 border-2 border-accent-teal rounded-full pointer-events-none z-[100] mix-blend-difference"
