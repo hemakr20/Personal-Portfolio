@@ -20,13 +20,46 @@ export default function Projects() {
         ]
     }
 
+    const scribbleVariants = {
+        hidden: { pathLength: 0, opacity: 0 },
+        visible: { 
+            pathLength: 1, 
+            opacity: 0.1, 
+            transition: { duration: 3, ease: "easeInOut" } 
+        }
+    };
+
     return (
-        <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg"> 
+        <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg relative overflow-hidden"> 
+            {/* Background Drawing Motion */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+                <svg width="100%" height="100%" viewBox="0 0 1000 1000" fill="none">
+                    <motion.path
+                        d="M0,500 Q250,400 500,500 T1000,500"
+                        stroke="#2dd4bf"
+                        strokeWidth="1"
+                        variants={scribbleVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    />
+                    <motion.path
+                        d="M500,0 Q600,250 500,500 T500,1000"
+                        stroke="#38bdf8"
+                        strokeWidth="1"
+                        variants={scribbleVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    />
+                </svg>
+            </div>
+
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="w-full max-w-6xl mx-auto mb-16"
+                className="w-full max-w-6xl mx-auto mb-16 relative z-10"
             >
                 <div className="flex flex-col px-4">
                     <h1 className="text-4xl border-b-2 border-accent-teal text-white mb-6 w-fit font-bold font-hero-font pb-2">02. Selected Work</h1>
@@ -34,7 +67,7 @@ export default function Projects() {
                 </div>
             </motion.div>
             
-            <div className="w-full max-w-6xl mx-auto">
+            <div className="w-full max-w-6xl mx-auto relative z-10">
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-4'>
                     {config.Projects.map((project, index) => (
                         <motion.div 

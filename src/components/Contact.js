@@ -6,14 +6,47 @@ export default function Contact () {
         phone : '+918940161401'
     }
 
+    const scribbleVariants = {
+        hidden: { pathLength: 0, opacity: 0 },
+        visible: { 
+            pathLength: 1, 
+            opacity: 0.1, 
+            transition: { duration: 3, ease: "easeInOut" } 
+        }
+    };
+
     return (
-        <section id='contact' className="flex flex-col bg-dark-bg px-10 py-32">
+        <section id='contact' className="flex flex-col bg-dark-bg px-10 py-32 relative overflow-hidden">
+            {/* Background Drawing Motion */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+                <svg width="100%" height="100%" viewBox="0 0 1000 1000" fill="none">
+                    <motion.path
+                        d="M200,200 C400,100 600,900 800,800"
+                        stroke="#2dd4bf"
+                        strokeWidth="1"
+                        variants={scribbleVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    />
+                    <motion.path
+                        d="M800,200 C600,100 400,900 200,800"
+                        stroke="#38bdf8"
+                        strokeWidth="1"
+                        variants={scribbleVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    />
+                </svg>
+            </div>
+
             <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col items-center max-w-2xl mx-auto text-center"
+                className="flex flex-col items-center max-w-2xl mx-auto text-center relative z-10"
             >
                 <h1 className="text-4xl text-white border-b-2 border-accent-teal mb-10 w-fit font-bold font-hero-font pb-2">04. Contact</h1>
                 <p className='text-xl text-gray-400 mb-12 font-light'>
