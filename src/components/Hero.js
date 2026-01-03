@@ -224,6 +224,16 @@ export default function Hero() {
                             <path d="M130,130 L160,90" stroke="#fecaca" strokeWidth="12" strokeLinecap="round" />
                             {/* Hand */}
                             <circle cx="165" cy="85" r="10" fill="#fecaca" />
+                            
+                            {/* Speech Bubble "Hii" */}
+                            <motion.g
+                                initial={{ opacity: 0, scale: 0.5, y: 10 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.5 }}
+                            >
+                                <path d="M175,75 Q195,65 195,45 Q195,25 170,25 Q145,25 145,45 Q145,65 165,75 L175,85 Z" fill="white" />
+                                <text x="170" y="50" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#1e293b" fontFamily="Arial">Hii</text>
+                            </motion.g>
                         </motion.g>
 
                         {/* Static Arm */}
