@@ -7,7 +7,7 @@ export default function Resume () {
     }
 
     return (
-        <section id="resume" className="flex flex-col md:flex-row bg-dark-card px-10 py-24 items-center gap-16 border-t border-white/5">
+        <section id="resume" className="flex flex-col md:flex-row bg-dark-card px-10 py-32 items-center gap-16 border-t border-white/5">
             <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -15,8 +15,13 @@ export default function Resume () {
                 transition={{ duration: 0.8 }}
                 className="md:w-1/2 flex justify-center md:justify-end"
             >
-                <div className="relative group p-4 bg-white/5 rounded-xl border border-white/10">
-                    <img className='w-72 md:w-80 rounded-lg shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500' src={ResumeIng} alt="Resume" />
+                <div className="relative group p-8 bg-white/5 rounded-2xl border border-white/10 w-72 md:w-80 h-[400px] flex flex-col items-center justify-center">
+                    <div className="w-16 h-20 border-2 border-accent-teal/30 rounded-md mb-4 flex flex-col p-2 space-y-2">
+                        <div className="h-1 w-full bg-accent-teal/20"></div>
+                        <div className="h-1 w-3/4 bg-accent-teal/20"></div>
+                        <div className="h-1 w-full bg-accent-teal/20"></div>
+                    </div>
+                    <span className="font-hero-font text-accent-teal/20 uppercase tracking-widest text-sm">Resume_Data</span>
                 </div>
             </motion.div>
             <motion.div 

@@ -46,9 +46,8 @@ export default function Projects() {
                             whileHover={{ y: -8 }}
                             className='group relative bg-dark-card rounded-2xl overflow-hidden shadow-2xl border border-white/5'
                         >
-                            <div className="relative h-64 overflow-hidden">
-                                <img className='w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700' src={project.image} alt={project.description}/>
-                                <div className="absolute inset-0 bg-dark-bg/40 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <div className="h-64 flex items-center justify-center bg-dark-bg/50 border-b border-white/5">
+                                <span className="font-hero-font text-accent-teal/20 text-4xl font-bold tracking-widest uppercase">Project_Module_{index + 1}</span>
                             </div>
                             <div className='p-8'>
                                 <div className="flex flex-wrap gap-2 mb-4">

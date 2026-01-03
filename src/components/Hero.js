@@ -95,18 +95,31 @@ export default function Hero() {
             </motion.div>
 
             <motion.div 
-                initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                initial={{ opacity: 0, scale: 0.8, x: 50 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="md:w-1/3 mt-12 md:mt-0 relative"
             >
                 <div className="absolute inset-0 bg-accent-teal/10 rounded-3xl blur-2xl -z-10 animate-pulse"></div>
-                <motion.img 
-                    whileHover={{ scale: 1.02, rotate: 1 }}
-                    className="h-[450px] md:h-[550px] w-full rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] object-cover grayscale hover:grayscale-0 transition-all duration-700 border border-white/10" 
-                    src={Hero_img} 
-                    alt="Developer portrait" 
-                />
+                <div className="h-[450px] md:h-[550px] w-full rounded-3xl bg-dark-card/50 border border-white/5 flex items-center justify-center shadow-2xl">
+                    <span className="text-6xl grayscale opacity-20">DEVELOPER</span>
+                </div>
+                
+                {/* Floating decorative elements */}
+                <motion.div 
+                    animate={{ y: [0, -20, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -top-6 -right-6 w-20 h-20 bg-white/5 backdrop-blur-md rounded-2xl shadow-xl flex items-center justify-center border border-white/10"
+                >
+                    <span className="text-3xl">💻</span>
+                </motion.div>
+                <motion.div 
+                    animate={{ y: [0, 20, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute -bottom-6 -left-6 w-16 h-16 bg-accent-teal/5 backdrop-blur-md rounded-full shadow-xl flex items-center justify-center border border-white/10"
+                >
+                    <span className="text-2xl">✨</span>
+                </motion.div>
             </motion.div>
         </section>
     )
