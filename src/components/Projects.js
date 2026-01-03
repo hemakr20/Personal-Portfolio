@@ -1,6 +1,8 @@
 import website1Img from '../assets/pic3.jpg';
 import website2Img from '../assets/pic4.jpg';
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 export default function Projects() {
     const config = {
@@ -20,6 +22,26 @@ export default function Projects() {
         ]
     }
 
+    const doodleRef = useRef(null);
+
+    useEffect(() => {
+        if (doodleRef.current) {
+            const doodles = doodleRef.current.querySelectorAll('.gsap-doodle');
+            doodles.forEach((doodle, i) => {
+                gsap.to(doodle, {
+                    x: "random(-40, 40)",
+                    y: "random(-40, 40)",
+                    rotation: "random(-10, 10)",
+                    duration: `random(4, 7)`,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: i * 0.3
+                });
+            });
+        }
+    }, []);
+
     const scribbleVariants = {
         hidden: { pathLength: 0, opacity: 0 },
         visible: { 
@@ -31,6 +53,20 @@ export default function Projects() {
 
     return (
         <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg relative overflow-hidden"> 
+            {/* GSAP Doodles */}
+            <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                <div className="gsap-doodle absolute top-[5%] left-[80%] opacity-10">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <path d="M10,10 Q50,90 90,10" stroke="#38bdf8" strokeWidth="2" fill="none" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[10%] left-[5%] opacity-10">
+                    <svg width="100" height="100" viewBox="0 0 100 100">
+                        <rect x="20" y="20" width="60" height="60" stroke="#2dd4bf" strokeWidth="1" fill="none" transform="rotate(45 50 50)" />
+                    </svg>
+                </div>
+            </div>
+
             {/* Figma Layout Lines */}
             <div className="absolute inset-0 pointer-events-none opacity-10">
                 <div className="absolute top-0 left-1/4 w-[1px] h-full bg-accent-teal/50"></div>
