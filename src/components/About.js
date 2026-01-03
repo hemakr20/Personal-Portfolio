@@ -38,6 +38,26 @@ export default function About () {
 
     return (
         <section className="bg-dark-card px-10 py-32 border-y border-white/5 relative overflow-hidden" id="about">
+            {/* Moving Background Objects */}
+            <motion.div 
+                animate={{ 
+                    y: [0, -100, 0],
+                    x: [0, 50, 0],
+                    rotate: [0, 90, 0]
+                }}
+                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 right-10 w-20 h-20 border-2 border-dashed border-accent-blue/10 rounded-full"
+            />
+            <motion.div 
+                animate={{ 
+                    y: [0, 100, 0],
+                    x: [0, -50, 0],
+                    rotate: [0, -90, 0]
+                }}
+                transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-1/4 left-10 w-16 h-16 border-2 border-dashed border-accent-teal/10 rounded-lg"
+            />
+
             {/* Figma-inspired Grid Overlay */}
             <div className="absolute inset-0 pointer-events-none opacity-5" style={{ 
                 backgroundImage: 'radial-gradient(circle, #2dd4bf 1px, transparent 1px)',

@@ -52,6 +52,34 @@ export default function Hero() {
         <section className="relative flex flex-col px-8 py-40 bg-dark-bg justify-center items-center min-h-screen overflow-hidden text-center">
             {/* Figma-inspired Background Elements */}
             <div className="absolute inset-0 pointer-events-none -z-10">
+                {/* Moving Geometric Objects */}
+                <motion.div 
+                    animate={{ 
+                        x: [0, 100, 0],
+                        y: [0, 50, 0],
+                        rotate: [0, 180, 360]
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute top-20 left-[10%] w-24 h-24 border border-accent-teal/20 rounded-xl"
+                />
+                <motion.div 
+                    animate={{ 
+                        x: [0, -150, 0],
+                        y: [0, 100, 0],
+                        rotate: [360, 180, 0]
+                    }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    className="absolute bottom-40 right-[15%] w-32 h-32 border border-accent-blue/20 rounded-full"
+                />
+                <motion.div 
+                    animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.1, 0.2, 0.1]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-teal/5 rounded-full blur-[100px]"
+                />
+
                 <motion.div 
                     variants={floatingVariants}
                     animate="animate"
