@@ -190,55 +190,99 @@ export default function Hero() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-col items-center z-10 max-w-4xl"
+                className="flex flex-col md:flex-row items-center z-10 max-w-6xl gap-12"
             >
-                <motion.h1 
-                    variants={itemVariants}
-                    className="text-white text-6xl md:text-9xl font-bold leading-tight mb-6 tracking-tighter relative"
-                > 
-                    Im <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-blue">Hema</span>
-                    <motion.svg 
-                        className="absolute -bottom-4 left-0 w-full" 
-                        viewBox="0 0 400 20" 
-                        initial="hidden" 
-                        animate="visible"
-                    >
-                        <motion.path
-                            d="M 0 10 Q 100 0 200 10 T 400 10"
-                            stroke="#2dd4bf"
-                            strokeWidth="3"
-                            fill="none"
-                            variants={scribbleVariants}
-                        />
-                    </motion.svg>
-                </motion.h1>
-                <motion.p 
-                    variants={itemVariants}
-                    className="text-2xl md:text-3xl text-gray-400 font-light mb-12 font-hero-font max-w-2xl leading-relaxed"
-                >
-                    {config.subtitle}
-                </motion.p>
+                {/* Waving Developer Character */}
                 <motion.div 
                     variants={itemVariants}
-                    className="flex space-x-8 py-4"
+                    className="relative w-64 h-64 md:w-80 md:h-80 order-2 md:order-1"
                 >
-                    <motion.a 
-                        whileHover={{ scale: 1.2, color: '#2dd4bf', rotate: [0, -10, 10, 0] }}
-                        whileTap={{ scale: 0.9 }}
-                        href={config.social.linkedin} 
-                        className="text-gray-400 transition-colors"
-                    >
-                        <FaLinkedin size="40"/>
-                    </motion.a>
-                    <motion.a 
-                        whileHover={{ scale: 1.2, color: '#2dd4bf', rotate: [0, 10, -10, 0] }}
-                        whileTap={{ scale: 0.9 }}
-                        href={config.social.github} 
-                        className="text-gray-400 transition-colors"
-                    >
-                        <FaGithub size="40"/>
-                    </motion.a>
+                    <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-2xl">
+                        {/* Body/Clothes */}
+                        <path d="M60,180 L140,180 L130,120 L70,120 Z" fill="#38bdf8" />
+                        <path d="M70,120 Q100,110 130,120" fill="none" stroke="#2dd4bf" strokeWidth="2" />
+                        
+                        {/* Head */}
+                        <circle cx="100" cy="80" r="35" fill="#fecaca" />
+                        
+                        {/* Hair */}
+                        <path d="M65,80 Q65,40 100,40 Q135,40 135,80 Q135,110 120,100 Q100,120 80,100 Q65,110 65,80" fill="#4b5563" />
+                        
+                        {/* Eyes */}
+                        <circle cx="88" cy="80" r="3" fill="#1e293b" />
+                        <circle cx="112" cy="80" r="3" fill="#1e293b" />
+                        
+                        {/* Smile */}
+                        <path d="M90,95 Q100,105 110,95" fill="none" stroke="#1e293b" strokeWidth="2" />
+
+                        {/* Waving Arm */}
+                        <motion.g
+                            animate={{ rotate: [0, -20, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            style={{ originX: "140px", originY: "130px" }}
+                        >
+                            <path d="M130,130 L160,90" stroke="#fecaca" strokeWidth="12" strokeLinecap="round" />
+                            {/* Hand */}
+                            <circle cx="165" cy="85" r="10" fill="#fecaca" />
+                        </motion.g>
+
+                        {/* Static Arm */}
+                        <path d="M70,130 L40,160" stroke="#fecaca" strokeWidth="12" strokeLinecap="round" />
+                    </svg>
+                    
+                    {/* Figma Style Cursor pointing at character */}
+                    <div className="absolute -bottom-4 right-0 bg-accent-blue text-dark-bg text-[10px] px-2 py-0.5 rounded font-bold shadow-lg">Developer_Girl</div>
                 </motion.div>
+
+                <div className="flex flex-col items-center md:items-start text-center md:text-left order-1 md:order-2">
+                    <motion.h1 
+                        variants={itemVariants}
+                        className="text-white text-6xl md:text-8xl font-bold leading-tight mb-6 tracking-tighter relative"
+                    > 
+                        Im <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-blue">Hema</span>
+                        <motion.svg 
+                            className="absolute -bottom-4 left-0 w-full" 
+                            viewBox="0 0 400 20" 
+                            initial="hidden" 
+                            animate="visible"
+                        >
+                            <motion.path
+                                d="M 0 10 Q 100 0 200 10 T 400 10"
+                                stroke="#2dd4bf"
+                                strokeWidth="3"
+                                fill="none"
+                                variants={scribbleVariants}
+                            />
+                        </motion.svg>
+                    </motion.h1>
+                    <motion.p 
+                        variants={itemVariants}
+                        className="text-2xl md:text-3xl text-gray-400 font-light mb-12 font-hero-font max-w-2xl leading-relaxed"
+                    >
+                        {config.subtitle}
+                    </motion.p>
+                    <motion.div 
+                        variants={itemVariants}
+                        className="flex space-x-8 py-4"
+                    >
+                        <motion.a 
+                            whileHover={{ scale: 1.2, color: '#2dd4bf', rotate: [0, -10, 10, 0] }}
+                            whileTap={{ scale: 0.9 }}
+                            href={config.social.linkedin} 
+                            className="text-gray-400 transition-colors"
+                        >
+                            <FaLinkedin size="40"/>
+                        </motion.a>
+                        <motion.a 
+                            whileHover={{ scale: 1.2, color: '#2dd4bf', rotate: [0, 10, -10, 0] }}
+                            whileTap={{ scale: 0.9 }}
+                            href={config.social.github} 
+                            className="text-gray-400 transition-colors"
+                        >
+                            <FaGithub size="40"/>
+                        </motion.a>
+                    </motion.div>
+                </div>
             </motion.div>
         </section>
     )
