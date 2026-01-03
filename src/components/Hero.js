@@ -56,9 +56,6 @@ export default function Hero() {
                 animate="visible"
                 className="flex flex-col items-center z-10 max-w-4xl"
             >
-                <motion.div variants={itemVariants} className="text-accent-teal font-hero-font mb-4 text-lg">
-                    System.out.println("Hello, World!");
-                </motion.div>
                 <motion.h1 
                     variants={itemVariants}
                     className="text-white text-6xl md:text-9xl font-bold leading-tight mb-6 tracking-tighter"
