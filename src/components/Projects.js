@@ -46,9 +46,6 @@ export default function Projects() {
                             whileHover={{ y: -8 }}
                             className='group relative bg-dark-card rounded-2xl overflow-hidden shadow-2xl border border-white/5'
                         >
-                            <div className="h-64 flex items-center justify-center bg-dark-bg/50 border-b border-white/5">
-                                <span className="font-hero-font text-accent-teal/20 text-4xl font-bold tracking-widest uppercase">Project_Module_{index + 1}</span>
-                            </div>
                             <div className='p-8'>
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tech?.map(t => (
