@@ -23,14 +23,14 @@ export default function Hero() {
             const doodles = doodleRef.current.querySelectorAll('.gsap-doodle');
             doodles.forEach((doodle, i) => {
                 gsap.to(doodle, {
-                    x: "random(-60, 60)",
-                    y: "random(-60, 60)",
-                    rotation: "random(-20, 20)",
-                    duration: `random(3, 5)`,
+                    x: "random(-100, 100)",
+                    y: "random(-100, 100)",
+                    rotation: "random(-30, 30)",
+                    duration: `random(2.5, 4.5)`,
                     repeat: -1,
                     yoyo: true,
                     ease: "power1.inOut",
-                    delay: i * 0.2
+                    delay: i * 0.15
                 });
             });
         }
@@ -74,14 +74,29 @@ export default function Hero() {
         <section className="relative flex flex-col px-8 py-40 bg-dark-bg justify-center items-center min-h-screen overflow-hidden text-center">
             {/* GSAP Wobble Doodles */}
             <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="gsap-doodle absolute top-[15%] left-[20%] opacity-20">
-                    <svg width="120" height="120" viewBox="0 0 100 100">
-                        <path d="M10,50 C10,10 90,10 90,50 C90,90 10,90 10,50" stroke="#2dd4bf" strokeWidth="1" fill="none" />
+                <div className="gsap-doodle absolute top-[15%] left-[10%] opacity-30">
+                    <svg width="100" height="100" viewBox="0 0 100 100">
+                        <path d="M10,50 C10,10 90,10 90,50 C90,90 10,90 10,50" stroke="#2dd4bf" strokeWidth="2" fill="none" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute bottom-[15%] right-[25%] opacity-20">
+                <div className="gsap-doodle absolute top-[40%] left-[5%] opacity-20">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <path d="M20,20 L80,80 M80,20 L20,80" stroke="#38bdf8" strokeWidth="2" fill="none" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[15%] right-[10%] opacity-30">
                     <svg width="150" height="150" viewBox="0 0 100 100">
-                        <path d="M20,20 Q50,5 80,20 T80,80 T20,80 T20,20" stroke="#38bdf8" strokeWidth="1" fill="none" />
+                        <path d="M20,20 Q50,5 80,20 T80,80 T20,80 T20,20" stroke="#38bdf8" strokeWidth="2" fill="none" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute top-[20%] right-[5%] opacity-20">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="#2dd4bf" strokeWidth="2" fill="none" strokeDasharray="5,5" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[40%] left-[15%] opacity-25">
+                    <svg width="120" height="120" viewBox="0 0 100 100">
+                        <path d="M10,10 Q90,50 10,90" stroke="#2dd4bf" strokeWidth="2" fill="none" />
                     </svg>
                 </div>
             </div>
@@ -110,7 +125,7 @@ export default function Hero() {
                 <motion.div 
                     animate={{ 
                         scale: [1, 1.2, 1],
-                        opacity: [0.1, 0.2, 0.1]
+                        opacity: [0.15, 0.25, 0.15]
                     }}
                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-teal/5 rounded-full blur-[100px]"
@@ -119,7 +134,7 @@ export default function Hero() {
                 <motion.div 
                     variants={floatingVariants}
                     animate="animate"
-                    className="absolute top-1/4 left-10 w-12 h-12 bg-accent-teal rounded-lg border-2 border-white/20 rotate-12 opacity-20 flex items-center justify-center shadow-lg"
+                    className="absolute top-1/4 left-10 w-12 h-12 bg-accent-teal rounded-lg border-2 border-white/20 rotate-12 opacity-30 flex items-center justify-center shadow-lg"
                 >
                     <span className="text-white text-xs font-bold">F</span>
                 </motion.div>
@@ -127,7 +142,7 @@ export default function Hero() {
                     variants={floatingVariants}
                     animate="animate"
                     transition={{ delay: 1 }}
-                    className="absolute bottom-1/4 right-20 w-16 h-16 bg-accent-blue rounded-full border-2 border-white/20 -rotate-12 opacity-20 flex items-center justify-center shadow-lg"
+                    className="absolute bottom-1/4 right-20 w-16 h-16 bg-accent-blue rounded-full border-2 border-white/20 -rotate-12 opacity-30 flex items-center justify-center shadow-lg"
                 >
                     <div className="w-8 h-8 border-2 border-white/40 rounded-sm"></div>
                 </motion.div>
@@ -138,7 +153,7 @@ export default function Hero() {
                         y: [100, 200, 400, 100] 
                     }}
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-0 left-0 text-accent-teal opacity-30"
+                    className="absolute top-0 left-0 text-accent-teal opacity-40"
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M5.653 2.553a.5.5 0 00-.735.61l4.004 12.012a.5.5 0 00.916.035l2.64-5.28 5.28-2.64a.5.5 0 00.035-.916L5.653 2.553z" />
@@ -148,7 +163,7 @@ export default function Hero() {
             </div>
 
             {/* Animated Scribble Backdrop */}
-            <div className="absolute inset-0 pointer-events-none -z-10 opacity-10">
+            <div className="absolute inset-0 pointer-events-none -z-10 opacity-15">
                 <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
                     <motion.path
                         variants={scribbleVariants}
@@ -156,7 +171,7 @@ export default function Hero() {
                         animate="visible"
                         d="M100,100 Q400,50 500,500 T900,900"
                         stroke="#2dd4bf"
-                        strokeWidth="2"
+                        strokeWidth="3"
                         fill="none"
                     />
                     <motion.path
@@ -165,7 +180,7 @@ export default function Hero() {
                         animate="visible"
                         d="M900,100 C700,400 300,600 100,900"
                         stroke="#38bdf8"
-                        strokeWidth="2"
+                        strokeWidth="3"
                         fill="none"
                     />
                 </svg>

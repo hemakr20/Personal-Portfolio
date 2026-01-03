@@ -29,14 +29,14 @@ export default function Projects() {
             const doodles = doodleRef.current.querySelectorAll('.gsap-doodle');
             doodles.forEach((doodle, i) => {
                 gsap.to(doodle, {
-                    x: "random(-40, 40)",
-                    y: "random(-40, 40)",
-                    rotation: "random(-10, 10)",
-                    duration: `random(4, 7)`,
+                    x: "random(-80, 80)",
+                    y: "random(-80, 80)",
+                    rotation: "random(-20, 20)",
+                    duration: `random(3, 6)`,
                     repeat: -1,
                     yoyo: true,
                     ease: "sine.inOut",
-                    delay: i * 0.3
+                    delay: i * 0.2
                 });
             });
         }
@@ -46,7 +46,7 @@ export default function Projects() {
         hidden: { pathLength: 0, opacity: 0 },
         visible: { 
             pathLength: 1, 
-            opacity: 0.1, 
+            opacity: 0.2, 
             transition: { duration: 3, ease: "easeInOut" } 
         }
     };
@@ -55,20 +55,30 @@ export default function Projects() {
         <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg relative overflow-hidden"> 
             {/* GSAP Doodles */}
             <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="gsap-doodle absolute top-[5%] left-[80%] opacity-20">
+                <div className="gsap-doodle absolute top-[10%] left-[85%] opacity-30">
                     <svg width="80" height="80" viewBox="0 0 100 100">
-                        <path d="M10,10 Q50,90 90,10" stroke="#38bdf8" strokeWidth="2" fill="none" />
+                        <path d="M10,10 Q50,90 90,10" stroke="#38bdf8" strokeWidth="3" fill="none" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute bottom-[10%] left-[5%] opacity-20">
+                <div className="gsap-doodle absolute top-[30%] left-[5%] opacity-25">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <path d="M10,50 L90,50 M50,10 L50,90" stroke="#2dd4bf" strokeWidth="3" fill="none" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[15%] left-[10%] opacity-30">
                     <svg width="100" height="100" viewBox="0 0 100 100">
-                        <rect x="20" y="20" width="60" height="60" stroke="#2dd4bf" strokeWidth="1" fill="none" transform="rotate(45 50 50)" />
+                        <rect x="20" y="20" width="60" height="60" stroke="#2dd4bf" strokeWidth="2" fill="none" transform="rotate(45 50 50)" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[40%] right-[15%] opacity-20">
+                    <svg width="120" height="120" viewBox="0 0 100 100">
+                        <path d="M10,50 Q50,10 90,50" stroke="#38bdf8" strokeWidth="2" fill="none" strokeDasharray="10,5" />
                     </svg>
                 </div>
             </div>
 
             {/* Figma Layout Lines */}
-            <div className="absolute inset-0 pointer-events-none opacity-10">
+            <div className="absolute inset-0 pointer-events-none opacity-20">
                 <div className="absolute top-0 left-1/4 w-[1px] h-full bg-accent-teal/50"></div>
                 <div className="absolute top-0 right-1/4 w-[1px] h-full bg-accent-teal/50"></div>
                 <div className="absolute top-1/4 left-0 w-full h-[1px] bg-accent-teal/50"></div>
@@ -81,7 +91,7 @@ export default function Projects() {
                     <motion.path
                         d="M0,500 Q250,400 500,500 T1000,500"
                         stroke="#2dd4bf"
-                        strokeWidth="1"
+                        strokeWidth="2"
                         variants={scribbleVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -90,7 +100,7 @@ export default function Projects() {
                     <motion.path
                         d="M500,0 Q600,250 500,500 T500,1000"
                         stroke="#38bdf8"
-                        strokeWidth="1"
+                        strokeWidth="2"
                         variants={scribbleVariants}
                         initial="hidden"
                         whileInView="visible"

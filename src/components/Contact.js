@@ -12,7 +12,7 @@ export default function Contact () {
         hidden: { pathLength: 0, opacity: 0 },
         visible: { 
             pathLength: 1, 
-            opacity: 0.1, 
+            opacity: 0.2, 
             transition: { duration: 3, ease: "easeInOut" } 
         }
     };
@@ -24,14 +24,14 @@ export default function Contact () {
             const doodles = doodleRef.current.querySelectorAll('.gsap-doodle');
             doodles.forEach((doodle, i) => {
                 gsap.to(doodle, {
-                    x: "random(-50, 50)",
-                    y: "random(-50, 50)",
-                    rotation: "random(-15, 15)",
-                    duration: `random(3, 6)`,
+                    x: "random(-70, 70)",
+                    y: "random(-70, 70)",
+                    rotation: "random(-25, 25)",
+                    duration: `random(2.5, 5)`,
                     repeat: -1,
                     yoyo: true,
                     ease: "sine.inOut",
-                    delay: i * 0.2
+                    delay: i * 0.1
                 });
             });
         }
@@ -41,19 +41,29 @@ export default function Contact () {
         <section id='contact' className="flex flex-col bg-dark-bg px-10 py-32 relative overflow-hidden">
             {/* GSAP Doodles */}
             <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="gsap-doodle absolute top-[10%] left-[5%] opacity-20">
-                    <svg width="60" height="60" viewBox="0 0 100 100">
-                        <path d="M10,50 Q25,10 50,50 T90,50" stroke="#2dd4bf" strokeWidth="2" fill="none" />
-                    </svg>
-                </div>
-                <div className="gsap-doodle absolute bottom-[20%] right-[10%] opacity-20">
+                <div className="gsap-doodle absolute top-[10%] left-[5%] opacity-35">
                     <svg width="80" height="80" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="30" stroke="#38bdf8" strokeWidth="2" fill="none" strokeDasharray="5,5" />
+                        <path d="M10,50 Q25,10 50,50 T90,50" stroke="#2dd4bf" strokeWidth="3" fill="none" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute top-[60%] left-[80%] opacity-20">
-                    <svg width="50" height="50" viewBox="0 0 100 100">
-                        <path d="M20,20 L80,80 M80,20 L20,80" stroke="#2dd4bf" strokeWidth="2" fill="none" />
+                <div className="gsap-doodle absolute top-[40%] right-[5%] opacity-30">
+                    <svg width="60" height="60" viewBox="0 0 100 100">
+                        <path d="M10,10 L90,90" stroke="#38bdf8" strokeWidth="2" fill="none" strokeDasharray="10,5" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[20%] right-[10%] opacity-35">
+                    <svg width="100" height="100" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" stroke="#38bdf8" strokeWidth="3" fill="none" strokeDasharray="5,5" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute top-[60%] left-[80%] opacity-30">
+                    <svg width="70" height="70" viewBox="0 0 100 100">
+                        <path d="M20,20 L80,80 M80,20 L20,80" stroke="#2dd4bf" strokeWidth="3" fill="none" />
+                    </svg>
+                </div>
+                <div className="gsap-doodle absolute bottom-[10%] left-[15%] opacity-25">
+                    <svg width="90" height="90" viewBox="0 0 100 100">
+                        <path d="M10,10 C50,10 50,90 90,90" stroke="#2dd4bf" strokeWidth="2" fill="none" />
                     </svg>
                 </div>
             </div>
@@ -64,7 +74,7 @@ export default function Contact () {
                     <motion.path
                         d="M200,200 C400,100 600,900 800,800"
                         stroke="#2dd4bf"
-                        strokeWidth="1"
+                        strokeWidth="2"
                         variants={scribbleVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -73,7 +83,7 @@ export default function Contact () {
                     <motion.path
                         d="M800,200 C600,100 400,900 200,800"
                         stroke="#38bdf8"
-                        strokeWidth="1"
+                        strokeWidth="2"
                         variants={scribbleVariants}
                         initial="hidden"
                         whileInView="visible"
