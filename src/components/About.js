@@ -1,4 +1,4 @@
-import AboutImg from "../assets/pic2.jpg"
+import AboutImg from "../assets/about_new.png"
 import { motion } from "framer-motion"
 
 export default function About () {
