@@ -31,6 +31,14 @@ export default function Projects() {
 
     return (
         <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg relative overflow-hidden"> 
+            {/* Figma Layout Lines */}
+            <div className="absolute inset-0 pointer-events-none opacity-10">
+                <div className="absolute top-0 left-1/4 w-[1px] h-full bg-accent-teal/50"></div>
+                <div className="absolute top-0 right-1/4 w-[1px] h-full bg-accent-teal/50"></div>
+                <div className="absolute top-1/4 left-0 w-full h-[1px] bg-accent-teal/50"></div>
+                <div className="absolute bottom-1/4 left-0 w-full h-[1px] bg-accent-teal/50"></div>
+            </div>
+
             {/* Background Drawing Motion */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <svg width="100%" height="100%" viewBox="0 0 1000 1000" fill="none">
@@ -61,8 +69,12 @@ export default function Projects() {
                 viewport={{ once: true }}
                 className="w-full max-w-6xl mx-auto mb-16 relative z-10"
             >
-                <div className="flex flex-col px-4">
-                    <h1 className="text-4xl border-b-2 border-accent-teal text-white mb-6 w-fit font-bold font-hero-font pb-2">02. Selected Work</h1>
+                <div className="flex flex-col px-4 group">
+                    <h1 className="text-4xl border-b-2 border-accent-teal text-white mb-6 w-fit font-bold font-hero-font pb-2 relative">
+                        02. Selected Work
+                        {/* Figma Style Selection Tag */}
+                        <div className="absolute -top-3 -right-8 bg-accent-blue text-dark-bg text-[8px] px-1 font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Component</div>
+                    </h1>
                     <p className='text-gray-500 text-lg font-light'>Building digital experiences with modern engineering practices.</p>
                 </div>
             </motion.div>
@@ -76,9 +88,17 @@ export default function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            whileHover={{ y: -8 }}
-                            className='group relative bg-dark-card rounded-2xl overflow-hidden shadow-2xl border border-white/5'
+                            whileHover={{ y: -8, scale: 1.02 }}
+                            className='group relative bg-dark-card rounded-2xl overflow-hidden shadow-2xl border border-accent-teal/0 hover:border-accent-teal/50 transition-all'
                         >
+                            {/* Figma Blue Selection Border on Hover */}
+                            <div className="absolute inset-0 border-2 border-accent-blue opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                <div className="absolute -top-2 -left-2 w-4 h-4 bg-accent-blue border border-white"></div>
+                                <div className="absolute -top-2 -right-2 w-4 h-4 bg-accent-blue border border-white"></div>
+                                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-accent-blue border border-white"></div>
+                                <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-accent-blue border border-white"></div>
+                            </div>
+
                             <div className='p-8'>
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tech?.map(t => (

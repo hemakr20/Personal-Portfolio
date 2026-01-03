@@ -36,8 +36,53 @@ export default function Hero() {
         }
     };
 
+    const floatingVariants = {
+        animate: {
+            y: [0, -20, 0],
+            rotate: [0, 5, -5, 0],
+            transition: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+            }
+        }
+    };
+
     return (
         <section className="relative flex flex-col px-8 py-40 bg-dark-bg justify-center items-center min-h-screen overflow-hidden text-center">
+            {/* Figma-inspired Background Elements */}
+            <div className="absolute inset-0 pointer-events-none -z-10">
+                <motion.div 
+                    variants={floatingVariants}
+                    animate="animate"
+                    className="absolute top-1/4 left-10 w-12 h-12 bg-accent-teal rounded-lg border-2 border-white/20 rotate-12 opacity-20 flex items-center justify-center shadow-lg"
+                >
+                    <span className="text-white text-xs font-bold">F</span>
+                </motion.div>
+                <motion.div 
+                    variants={floatingVariants}
+                    animate="animate"
+                    transition={{ delay: 1 }}
+                    className="absolute bottom-1/4 right-20 w-16 h-16 bg-accent-blue rounded-full border-2 border-white/20 -rotate-12 opacity-20 flex items-center justify-center shadow-lg"
+                >
+                    <div className="w-8 h-8 border-2 border-white/40 rounded-sm"></div>
+                </motion.div>
+                {/* Figma Cursor Decoration */}
+                <motion.div 
+                    animate={{ 
+                        x: [100, 300, 200, 100],
+                        y: [100, 200, 400, 100] 
+                    }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="absolute top-0 left-0 text-accent-teal opacity-30"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M5.653 2.553a.5.5 0 00-.735.61l4.004 12.012a.5.5 0 00.916.035l2.64-5.28 5.28-2.64a.5.5 0 00.035-.916L5.653 2.553z" />
+                    </svg>
+                    <div className="bg-accent-teal text-dark-bg text-[10px] px-2 py-0.5 rounded ml-4 font-bold">Hema</div>
+                </motion.div>
+            </div>
+
             {/* Animated Scribble Backdrop */}
             <div className="absolute inset-0 pointer-events-none -z-10 opacity-10">
                 <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">

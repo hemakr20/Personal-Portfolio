@@ -38,6 +38,12 @@ export default function About () {
 
     return (
         <section className="bg-dark-card px-10 py-32 border-y border-white/5 relative overflow-hidden" id="about">
+            {/* Figma-inspired Grid Overlay */}
+            <div className="absolute inset-0 pointer-events-none opacity-5" style={{ 
+                backgroundImage: 'radial-gradient(circle, #2dd4bf 1px, transparent 1px)',
+                backgroundSize: '30px 30px' 
+            }}></div>
+
             <motion.div 
                 variants={containerVariants}
                 initial="hidden"
@@ -45,11 +51,13 @@ export default function About () {
                 viewport={{ once: true, margin: "-100px" }}
                 className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10"
             >
-                <motion.div variants={itemVariants} className="mb-4 relative">
-                    <span className="text-accent-teal font-hero-font text-sm uppercase tracking-[0.3em]">Discovery</span>
-                    <motion.svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 10">
-                        <motion.path d="M0 5 Q50 0 100 5" stroke="#2dd4bf" strokeWidth="2" fill="none" variants={pathVariants} />
-                    </motion.svg>
+                <motion.div variants={itemVariants} className="mb-4 relative group">
+                    <span className="text-accent-teal font-hero-font text-sm uppercase tracking-[0.3em] px-3 py-1 border border-accent-teal/30 rounded-full">Discovery</span>
+                    {/* Floating Figma Selection Style */}
+                    <div className="absolute -top-1 -left-1 w-2 h-2 bg-accent-teal group-hover:scale-125 transition-transform"></div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent-teal group-hover:scale-125 transition-transform"></div>
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-accent-teal group-hover:scale-125 transition-transform"></div>
+                    <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-accent-teal group-hover:scale-125 transition-transform"></div>
                 </motion.div>
                 
                 <motion.h1 
@@ -69,10 +77,14 @@ export default function About () {
 
                     <motion.div 
                         variants={itemVariants}
-                        className="relative p-8 border-2 border-dashed border-accent-teal/30 rounded-3xl"
+                        className="relative p-8 border-2 border-dashed border-accent-teal/30 rounded-3xl group"
                     >
                         <motion.div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-accent-teal" />
                         <motion.div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-accent-teal" />
+                        
+                        {/* Figma Coordinate Tag */}
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-teal text-dark-bg text-[10px] px-2 font-bold rounded">X: 240 Y: 512</div>
+
                         <p className="font-hero-font text-sm md:text-base text-accent-teal tracking-wide">
                             {config.line2}
                         </p>
