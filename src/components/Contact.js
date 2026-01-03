@@ -41,17 +41,17 @@ export default function Contact () {
         <section id='contact' className="flex flex-col bg-dark-bg px-10 py-32 relative overflow-hidden">
             {/* GSAP Doodles */}
             <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="gsap-doodle absolute top-[10%] left-[5%] opacity-10">
+                <div className="gsap-doodle absolute top-[10%] left-[5%] opacity-20">
                     <svg width="60" height="60" viewBox="0 0 100 100">
                         <path d="M10,50 Q25,10 50,50 T90,50" stroke="#2dd4bf" strokeWidth="2" fill="none" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute bottom-[20%] right-[10%] opacity-10">
+                <div className="gsap-doodle absolute bottom-[20%] right-[10%] opacity-20">
                     <svg width="80" height="80" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="30" stroke="#38bdf8" strokeWidth="2" fill="none" strokeDasharray="5,5" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute top-[60%] left-[80%] opacity-10">
+                <div className="gsap-doodle absolute top-[60%] left-[80%] opacity-20">
                     <svg width="50" height="50" viewBox="0 0 100 100">
                         <path d="M20,20 L80,80 M80,20 L20,80" stroke="#2dd4bf" strokeWidth="2" fill="none" />
                     </svg>

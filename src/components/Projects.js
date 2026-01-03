@@ -55,12 +55,12 @@ export default function Projects() {
         <section id='projects' className="flex flex-col py-32 px-10 justify-center bg-dark-bg relative overflow-hidden"> 
             {/* GSAP Doodles */}
             <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="gsap-doodle absolute top-[5%] left-[80%] opacity-10">
+                <div className="gsap-doodle absolute top-[5%] left-[80%] opacity-20">
                     <svg width="80" height="80" viewBox="0 0 100 100">
                         <path d="M10,10 Q50,90 90,10" stroke="#38bdf8" strokeWidth="2" fill="none" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute bottom-[10%] left-[5%] opacity-10">
+                <div className="gsap-doodle absolute bottom-[10%] left-[5%] opacity-20">
                     <svg width="100" height="100" viewBox="0 0 100 100">
                         <rect x="20" y="20" width="60" height="60" stroke="#2dd4bf" strokeWidth="1" fill="none" transform="rotate(45 50 50)" />
                     </svg>

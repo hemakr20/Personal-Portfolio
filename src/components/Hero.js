@@ -74,12 +74,12 @@ export default function Hero() {
         <section className="relative flex flex-col px-8 py-40 bg-dark-bg justify-center items-center min-h-screen overflow-hidden text-center">
             {/* GSAP Wobble Doodles */}
             <div ref={doodleRef} className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="gsap-doodle absolute top-[15%] left-[20%] opacity-10">
+                <div className="gsap-doodle absolute top-[15%] left-[20%] opacity-20">
                     <svg width="120" height="120" viewBox="0 0 100 100">
                         <path d="M10,50 C10,10 90,10 90,50 C90,90 10,90 10,50" stroke="#2dd4bf" strokeWidth="1" fill="none" />
                     </svg>
                 </div>
-                <div className="gsap-doodle absolute bottom-[15%] right-[25%] opacity-10">
+                <div className="gsap-doodle absolute bottom-[15%] right-[25%] opacity-20">
                     <svg width="150" height="150" viewBox="0 0 100 100">
                         <path d="M20,20 Q50,5 80,20 T80,80 T20,80 T20,20" stroke="#38bdf8" strokeWidth="1" fill="none" />
                     </svg>
