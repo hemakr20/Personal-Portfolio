@@ -21,21 +21,23 @@ export default function Contact () {
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                    <motion.div 
+                    <motion.a 
+                        href={`mailto:${config.email}`}
                         whileHover={{ y: -5, borderColor: '#2dd4bf' }}
-                        className="bg-dark-card p-6 rounded-2xl shadow-xl border border-white/5 transition-colors"
+                        className="bg-dark-card p-6 rounded-2xl shadow-xl border border-white/5 transition-colors cursor-pointer block"
                     >
                         <p className="text-[10px] uppercase tracking-widest text-accent-teal font-hero-font mb-2">Mail</p>
-                        <a href={`mailto:${config.email}`} className="text-lg text-white font-medium hover:text-accent-teal transition-colors break-all">{config.email}</a>
-                    </motion.div>
+                        <span className="text-lg text-white font-medium hover:text-accent-teal transition-colors break-all">{config.email}</span>
+                    </motion.a>
                     
-                    <motion.div 
+                    <motion.a 
+                        href={`tel:${config.phone}`}
                         whileHover={{ y: -5, borderColor: '#2dd4bf' }}
-                        className="bg-dark-card p-6 rounded-2xl shadow-xl border border-white/5 transition-colors"
+                        className="bg-dark-card p-6 rounded-2xl shadow-xl border border-white/5 transition-colors cursor-pointer block"
                     >
                         <p className="text-[10px] uppercase tracking-widest text-accent-teal font-hero-font mb-2">Phone</p>
-                        <a href={`tel:${config.phone}`} className="text-lg text-white font-medium hover:text-accent-teal transition-colors">{config.phone}</a>
-                    </motion.div>
+                        <span className="text-lg text-white font-medium hover:text-accent-teal transition-colors">{config.phone}</span>
+                    </motion.a>
                 </div>
             </motion.div>
         </section>
