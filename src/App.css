@@ -7,11 +7,11 @@ header ul li {
 }
 
 .bg-primary {
-  background: rgb(228, 111, 136);
+  background: #0f172a;
 }
 
 .bg-secondary {
-  background: rgb(253, 229, 211);
+  background: #1e293b;
 }
 
 .mobile-nav {
@@ -23,13 +23,30 @@ header ul li {
 }
 
 .project-desc {
-  @apply absolute left-0 right-0 bottom-0 top-0 bg-primary opacity-0 duration-500 hover:opacity-100;
+  @apply absolute left-0 right-0 bottom-0 top-0 bg-accent-teal/90 opacity-0 duration-500 hover:opacity-100;
 }
 
 .btn {
-  @apply bg-secondary px-5 py-2 font-bold text-red-400 hover:border-2 border-white rounded-xl;
+  @apply border border-accent-teal px-5 py-2 font-bold text-accent-teal hover:bg-accent-teal hover:text-dark-bg transition-all duration-300 rounded-xl;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom Cursor */
+.App {
+  cursor: none;
+}
+
+/* Scribble Animation */
+@keyframes scribble {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.scribble-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: scribble 2s ease-in-out forwards;
 }

@@ -1,6 +1,5 @@
-import Hero_img from "../assets/hero_new.png";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Hero() {
     const config = {
@@ -28,27 +27,40 @@ export default function Hero() {
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };
 
+    const scribbleVariants = {
+        hidden: { pathLength: 0, opacity: 0 },
+        visible: { 
+            pathLength: 1, 
+            opacity: 1, 
+            transition: { duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" } 
+        }
+    };
+
     return (
         <section className="relative flex flex-col px-8 py-40 bg-dark-bg justify-center items-center min-h-screen overflow-hidden text-center">
-            {/* Animated Background Elements */}
-            <motion.div 
-                style={{ y: y1 }}
-                className="absolute top-20 left-10 w-96 h-96 bg-accent-teal/5 rounded-full blur-[100px] -z-10"
-                animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.4, 0.3]
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div 
-                style={{ y: y2 }}
-                className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-accent-blue/5 rounded-full blur-[120px] -z-10"
-                animate={{ 
-                    scale: [1.1, 1, 1.1],
-                    opacity: [0.2, 0.3, 0.2]
-                }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            />
+            {/* Animated Scribble Backdrop */}
+            <div className="absolute inset-0 pointer-events-none -z-10 opacity-10">
+                <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                    <motion.path
+                        variants={scribbleVariants}
+                        initial="hidden"
+                        animate="visible"
+                        d="M100,100 Q400,50 500,500 T900,900"
+                        stroke="#2dd4bf"
+                        strokeWidth="2"
+                        fill="none"
+                    />
+                    <motion.path
+                        variants={scribbleVariants}
+                        initial="hidden"
+                        animate="visible"
+                        d="M900,100 C700,400 300,600 100,900"
+                        stroke="#38bdf8"
+                        strokeWidth="2"
+                        fill="none"
+                    />
+                </svg>
+            </div>
 
             <motion.div 
                 variants={containerVariants}
@@ -58,9 +70,23 @@ export default function Hero() {
             >
                 <motion.h1 
                     variants={itemVariants}
-                    className="text-white text-6xl md:text-9xl font-bold leading-tight mb-6 tracking-tighter"
+                    className="text-white text-6xl md:text-9xl font-bold leading-tight mb-6 tracking-tighter relative"
                 > 
                     Im <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-blue">Hema</span>
+                    <motion.svg 
+                        className="absolute -bottom-4 left-0 w-full" 
+                        viewBox="0 0 400 20" 
+                        initial="hidden" 
+                        animate="visible"
+                    >
+                        <motion.path
+                            d="M 0 10 Q 100 0 200 10 T 400 10"
+                            stroke="#2dd4bf"
+                            strokeWidth="3"
+                            fill="none"
+                            variants={scribbleVariants}
+                        />
+                    </motion.svg>
                 </motion.h1>
                 <motion.p 
                     variants={itemVariants}
@@ -73,7 +99,7 @@ export default function Hero() {
                     className="flex space-x-8 py-4"
                 >
                     <motion.a 
-                        whileHover={{ scale: 1.1, color: '#2dd4bf', y: -5 }}
+                        whileHover={{ scale: 1.2, color: '#2dd4bf', rotate: [0, -10, 10, 0] }}
                         whileTap={{ scale: 0.9 }}
                         href={config.social.linkedin} 
                         className="text-gray-400 transition-colors"
@@ -81,7 +107,7 @@ export default function Hero() {
                         <FaLinkedin size="40"/>
                     </motion.a>
                     <motion.a 
-                        whileHover={{ scale: 1.1, color: '#2dd4bf', y: -5 }}
+                        whileHover={{ scale: 1.2, color: '#2dd4bf', rotate: [0, 10, -10, 0] }}
                         whileTap={{ scale: 0.9 }}
                         href={config.social.github} 
                         className="text-gray-400 transition-colors"

@@ -1,4 +1,5 @@
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useMotionValue, useTransform } from 'framer-motion';
+import { useEffect } from 'react';
 import './App.css';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -16,8 +17,26 @@ function App() {
     restDelta: 0.001
   });
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
-    <div className="App selection:bg-accent-teal/30 selection:text-accent-teal overflow-x-hidden bg-dark-bg text-gray-300 relative min-h-screen font-sans">
+    <div className="App selection:bg-accent-teal/30 selection:text-accent-teal overflow-x-hidden bg-dark-bg text-gray-300 relative min-h-screen font-sans cursor-none">
+      {/* Custom Cursor */}
+      <motion.div 
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-accent-teal rounded-full pointer-events-none z-[100] mix-blend-difference"
+        style={{ x: mouseX, y: mouseY, translateX: '-50%', translateY: '-50%' }}
+      />
+      
       {/* Global Background Animation Elements */}
       <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden bg-dark-bg">
         <motion.div 
