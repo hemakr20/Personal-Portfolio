@@ -72,8 +72,6 @@ export default function Projects() {
                 <div className="flex flex-col px-4 group">
                     <h1 className="text-4xl border-b-2 border-accent-teal text-white mb-6 w-fit font-bold font-hero-font pb-2 relative">
                         02. Selected Work
-                        {/* Figma Style Selection Tag */}
-                        <div className="absolute -top-3 -right-8 bg-accent-blue text-dark-bg text-[8px] px-1 font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity">Component</div>
                     </h1>
                     <p className='text-gray-500 text-lg font-light'>Building digital experiences with modern engineering practices.</p>
                 </div>
